@@ -21,6 +21,16 @@ File Description: Includes all constant of the project
 #include <iostream>
 using namespace std;
 
-//TODO
+#define AI 1
+#define PLAYER 2
+
+//Length of the board
+#define SIDE 3
+
+#define NEGATIVE_INFINITY -9999
+#define POSITIVE_INFINITY 10000
+//Symbol of AI movement(AI_MOVE) or PLAYER movement(PLAYER_MOVE)
+#define AI_MOVE 'O' 
+#define PLAYER_MOVE 'X'
 
 #endif
