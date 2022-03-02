@@ -21,8 +21,8 @@ File Description: Includes all matrix operator declartions.
 
 template <class T> class matrix
 {
-	private:
-		T mat[SIDE][SIDE];
+  private:
+    T mat[SIDE][SIDE];
 };
 #include "matrix.cpp"
 #endif
