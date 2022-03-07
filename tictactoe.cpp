@@ -12,7 +12,7 @@ Project Description: Standalone game allows user to beat AI.
   file to call driver and load the game.
 License: Included but not limited of MIT, Harvard, CSUF, Github
 File Name: tictactoe.h
-File Description: Define al game operators declared in tictactoe.h
+File Description: Define all game operators declared in tictactoe.h
 ================================================================*/
 #pragma once
 #ifndef __TICTACTOE_CPP__
