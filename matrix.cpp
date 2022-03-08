@@ -19,6 +19,7 @@ File Description: Define all matrix operators being declared in
 #ifndef __MATRIX_CPP__
 #define __MATRIX_CPP__
 
+//header
 #include "matrix.h"
 template <class T> T& matrix<T>::operator()(const int row, const int column) // get reference of value
 {

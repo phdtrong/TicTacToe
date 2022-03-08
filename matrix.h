@@ -1,4 +1,4 @@
-/*=============================================================== 
+/*===============================================================
 CSUF, CPSC254 - SPRING 2022
 Contributor: Trong Pham, Adam Harb, Albert Paez
 Project Title: Tictactoe Game
@@ -22,6 +22,7 @@ File Description: Includes all matrix operator declartions.
 template <class T> class matrix
 {
   private:
+    //private member function which can be accessed in the class
     T mat[SIDE][SIDE];
 };
 #include "matrix.cpp"

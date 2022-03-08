@@ -1,4 +1,4 @@
-/*=============================================================== 
+/*===============================================================
 CSUF, CPSC254 - SPRING 2022
 Contributor: Trong Pham, Adam Harb, Albert Paez
 Project Title: Tictactoe Game
@@ -21,6 +21,7 @@ File Description: Includes all constant of the project
 #include <iostream>
 using namespace std;
 
+//Artificial Intelligece like CPU; the opponent in the game
 #define AI 1
 #define PLAYER 2
 
@@ -30,7 +31,7 @@ using namespace std;
 #define NEGATIVE_INFINITY -9999
 #define POSITIVE_INFINITY 10000
 //Symbol of AI movement(AI_MOVE) or PLAYER movement(PLAYER_MOVE)
-#define AI_MOVE 'O' 
+#define AI_MOVE 'O'
 #define PLAYER_MOVE 'X'
 
 #endif
