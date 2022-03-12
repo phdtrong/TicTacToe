@@ -21,19 +21,20 @@ File Description: Define all matrix operators being declared in
 
 //header
 #include "matrix.h"
-template <class T> T& matrix<T>::operator()(const int row, const int column) // get reference of value
+
+template <class T> T& Matrix<T>::operator()(const int row, const int column) // get reference of value
 {
   return mat[row][column];
 }
-template <class T> T matrix<T>::operator()(const int row, const int column) const // get value
+template <class T> T Matrix<T>::operator()(const int row, const int column) const // get value
 {
   return mat[row][column];
 }
-template <class T> T& matrix<T>::operator()(const int array_index) // get reference of value
+template <class T> T& Matrix<T>::operator()(const int array_index) // get reference of value
 {
   return mat[array_index/SIDE][array_index%SIDE];
 }
-template <class T> T matrix<T>::operator()(const int array_index) const // get value
+template <class T> T Matrix<T>::operator()(const int array_index) const // get value
 {
   return mat[array_index/SIDE][array_index%SIDE];
 }

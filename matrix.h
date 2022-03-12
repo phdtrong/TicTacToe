@@ -19,13 +19,20 @@ File Description: Includes all matrix operator declartions.
 #define __MATRIX_H__
 #include "const.h"
 
-template <class T> class matrix
+template <class T> class Matrix
 {
   private:
     //private member function which can be accessed in the class
-    T mat[SIDE][SIDE];
+    T mat_[SIDE][SIDE];
+
+  public:
+    T& operator()(const int row, const int column); 			//get reference of value
+		T  operator()(const int row,const int column) const;	//get value
+		T& operator()(const int array_index); 								//get reference of value
+		T  operator()(const int array_index) const;						//get value
 };
-#include "matrix.cpp"
+
+
 #endif
 /*===============================================================
 Side node: This is the link to resolve linking issues that is
