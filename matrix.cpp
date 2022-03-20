@@ -38,6 +38,12 @@ template <class T> T Matrix<T>::operator()(const int array_index) const // get v
 {
   return mat[array_index/SIDE][array_index%SIDE];
 }
+template <class T> void Matrix<T>::operator=(const T value) // assign the whole matrix by 1 const value
+{
+  for (int i = 0; i < SIDE; i++)
+    for (int j = 0; j < SIDE; j++)
+      (*this)(i, j) = value;
+}
 
 
 #endif
