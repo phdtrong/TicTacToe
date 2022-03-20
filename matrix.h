@@ -30,6 +30,12 @@ template <class T> class Matrix
 		T  operator()(const int row,const int column) const;	//get value
 		T& operator()(const int array_index); 								//get reference of value
 		T  operator()(const int array_index) const;						//get value
+    void operator=(const T value);												//assign the whole matrix by 1 const value
+		bool exist_equalized_row() const;											//a row with same value
+		bool exist_equalized_column() const;									//a column with same value
+		bool exist_equalized_main_diagonal() const;						//a main diagonal with same value
+		bool exist_equalized_sub_diagonal() const;						//a sub diagonal with same value
+		bool exist_equalized_diagonal() const;								//a diagonal with same value
 };
 
 
