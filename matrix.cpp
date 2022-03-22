@@ -44,6 +44,63 @@ template <class T> void Matrix<T>::operator=(const T value) // assign the whole 
     for (int j = 0; j < SIDE; j++)
       (*this)(i, j) = value;
 }
+template <class T> bool Matrix<T>::exist_equalized_row() const // a row with same value
+{
+  matrix m = *this;
+	int same_value_cases=0;
+  for (int i = 0; i < SIDE; i++)
+	{
+		same_value_cases = 0;
+		for (int j = 0; j < SIDE; j++)//how many same value pairs
+    	if (m(i, 0) == m(i, j))//on the same row
+      	same_value_cases += 1;
+		if (same_value_cases == SIDE && m(i,0) != ' ')
+			return true;
+	}
+  return false;
+}
+template <class T> bool Matrix<T>::exist_equalized_column() const // a column with same value
+{
+	matrix m = *this;
+	int same_value_cases=0;
+  for (int j = 0; j < SIDE; j++)
+	{
+		same_value_cases = 0;
+		for (int i = 0; i < SIDE; i++)//how many same value pairs
+    	if (m(0, j) == m(i, j))//on the same column
+      	same_value_cases += 1;
+		if (same_value_cases == SIDE && m(0,j) != ' ')
+			return true;
+	}
+  return false;
+}
+template <class T> bool Matrix<T>::exist_equalized_main_diagonal() const // a main diagonal with same value
+{
+  matrix m = *this;
+	int same_value_cases=0;
+  for (int i = 0; i < SIDE; i++)
+		if (m(0, 0) == m(i, i))
+      	same_value_cases += 1;
 
+	if (same_value_cases == SIDE && m(0,0) != ' ')
+			return true;
+  return false;
+}
+template <class T> bool Matrix<T>::exist_equalized_sub_diagonal() const // a sub diagonal with same value
+{
+	matrix m = *this;
+	int same_value_cases=0;
+  for (int i = 0; i < SIDE; i++)
+		if (m(0, SIDE-1) == m(i, SIDE-i-1))
+      	same_value_cases += 1;
+
+	if (same_value_cases == SIDE && m(0,SIDE-1) != ' ')
+			return true;
+  return false;
+}
+template <class T> bool Matrix<T>::exist_equalized_diagonal() const // a diagonal with same value
+{
+  return exist_equalized_main_diagonal() || exist_equalized_sub_diagonal();
+}
 
 #endif
