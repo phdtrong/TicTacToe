@@ -22,10 +22,10 @@ File Description: Calling game driver file to load the game.
 #include "test.h"
 
 int main() {
-  Test test;
-  test.Test_Unit();
-  test.Test_Integrate();
-  test.Test_System();
+  Test test_;
+  test_.Test_Unit();
+  test_.Test_Integrate();
+  test_.Test_System();
   return 0;
 }
 
