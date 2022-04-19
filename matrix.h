@@ -19,32 +19,39 @@ File Description: Includes all matrix operator declartions.
 #define __MATRIX_H__
 #include "const.h"
 
-template <class T> class Matrix
-{
-  private:
-    //private member function which can be accessed in the class
-    T mat_[SIDE][SIDE];
+template <class T> class Matrix {
+private:
+  T mat_[SIDE][SIDE];
 
-  public:
-    T& operator()(const int row, const int column); 			//get reference of value
-		T  operator()(const int row,const int column) const;	//get value
-		T& operator()(const int array_index); 								//get reference of value
-		T  operator()(const int array_index) const;						//get value
-    void operator=(const T value);												//assign the whole matrix by 1 const value
-		bool exist_equalized_row() const;											//a row with same value
-		bool exist_equalized_column() const;									//a column with same value
-		bool exist_equalized_main_diagonal() const;						//a main diagonal with same value
-		bool exist_equalized_sub_diagonal() const;						//a sub diagonal with same value
-		bool exist_equalized_diagonal() const;								//a diagonal with same value
+public:
+  // get reference of a matrix element at (row, column) position
+  T &operator()(const int row, const int column);
+  // get value of a matrix element at (row, column) position
+  T operator()(const int row, const int column) const;
+  // get reference of a matrix element at (one_side_array index)
+  T &operator()(const int array_index);
+  // get value of a matrix element at (one_side_array index)
+  T operator()(const int array_index) const;
+  // assign the whole matrix by 1 const value
+  void operator=(const T value);
+  // check to see if there is any row with same value
+  bool Exist_Equalized_Row() const;
+  // check to see if there is any column with same value
+  bool Exist_Equalized_Column() const;
+  // check to see if there is a main diagonal with same value
+  bool Exist_Equalized_Main_Diagonal() const;
+  // check to see if there is a sub diagonal with same value
+  bool Exist_Equalized_Sub_Diagonal() const;
+  // check to see if there is any diagonal with same value
+  bool Exist_Equalized_Diagonal() const;
 };
-
-
+#include "matrix.cpp"
 #endif
 /*===============================================================
 Side node: This is the link to resolve linking issues that is
-  associated with the separation of .h and .cpp files.
-Link: https://tinyurl.com/Hehehe121
-Selected solution: add .cpp file at the end of .h file as includers
-Original link:www.codeproject.com/Articles/48575/
+associated with the separation
+of .h and .cpp files. Link: https://tinyurl.com/Hehehe121 Selected solution: add
+.cpp file at the end of .h file as includers Original
+link:www.codeproject.com/Articles/48575/
 How-to-Define-a-Template-Class-in-a-h-File-and-Imp
 ================================================================*/

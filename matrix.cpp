@@ -7,21 +7,18 @@ Project Description: Standalone game allows user to beat AI.
   of row, column, or diagonal. This game
   is designed with a smart AI to challenge
   players like you!
-  This project includes main files of matrix
+  This project includes main files of Matrix
   operators, tictactoe game driver, and main
   file to call driver and load the game.
 License: Included but not limited of MIT, Harvard, CSUF, Github
-File Name: const.cpp
-File Description: Define all matrix operators being declared in
-  matrix.h
+File Name: Matrix.cpp
+File Description: Define all Matrix operators being declared in Matrix.h
 ================================================================*/
 #pragma once
-#ifndef __MATRIX_CPP__
-#define __MATRIX_CPP__
+#ifndef __Matrix_CPP__
+#define __Matrix_CPP__
 
-//header
 #include "matrix.h"
-
 template <class T> T& Matrix<T>::operator()(const int row, const int column) // get reference of value
 {
   return mat[row][column];
@@ -38,15 +35,15 @@ template <class T> T Matrix<T>::operator()(const int array_index) const // get v
 {
   return mat[array_index/SIDE][array_index%SIDE];
 }
-template <class T> void Matrix<T>::operator=(const T value) // assign the whole matrix by 1 const value
+template <class T> void Matrix<T>::operator=(const T value) // assign the whole Matrix by 1 const value
 {
   for (int i = 0; i < SIDE; i++)
     for (int j = 0; j < SIDE; j++)
       (*this)(i, j) = value;
 }
-template <class T> bool Matrix<T>::exist_equalized_row() const // a row with same value
+template <class T> bool Matrix<T>::Exist_Equalized_Row() const // a row with same value
 {
-  matrix m = *this;
+  Matrix m = *this;
 	int same_value_cases=0;
   for (int i = 0; i < SIDE; i++)
 	{
@@ -59,9 +56,9 @@ template <class T> bool Matrix<T>::exist_equalized_row() const // a row with sam
 	}
   return false;
 }
-template <class T> bool Matrix<T>::exist_equalized_column() const // a column with same value
+template <class T> bool Matrix<T>::Exist_Equalized_Column() const // a column with same value
 {
-	matrix m = *this;
+	Matrix m = *this;
 	int same_value_cases=0;
   for (int j = 0; j < SIDE; j++)
 	{
@@ -74,9 +71,9 @@ template <class T> bool Matrix<T>::exist_equalized_column() const // a column wi
 	}
   return false;
 }
-template <class T> bool Matrix<T>::exist_equalized_main_diagonal() const // a main diagonal with same value
+template <class T> bool Matrix<T>::Exist_Equalized_Main_Diagonal() const // a main diagonal with same value
 {
-  matrix m = *this;
+  Matrix m = *this;
 	int same_value_cases=0;
   for (int i = 0; i < SIDE; i++)
 		if (m(0, 0) == m(i, i))
@@ -86,9 +83,9 @@ template <class T> bool Matrix<T>::exist_equalized_main_diagonal() const // a ma
 			return true;
   return false;
 }
-template <class T> bool Matrix<T>::exist_equalized_sub_diagonal() const // a sub diagonal with same value
+template <class T> bool Matrix<T>::Exist_Equalized_Sub_Diagonal() const // a sub diagonal with same value
 {
-	matrix m = *this;
+	Matrix m = *this;
 	int same_value_cases=0;
   for (int i = 0; i < SIDE; i++)
 		if (m(0, SIDE-1) == m(i, SIDE-i-1))
@@ -98,9 +95,9 @@ template <class T> bool Matrix<T>::exist_equalized_sub_diagonal() const // a sub
 			return true;
   return false;
 }
-template <class T> bool Matrix<T>::exist_equalized_diagonal() const // a diagonal with same value
+template <class T> bool Matrix<T>::Exist_Equalized_Diagonal() const // a diagonal with same value
 {
-  return exist_equalized_main_diagonal() || exist_equalized_sub_diagonal();
+  return Exist_Equalized_Main_Diagonal() || Exist_Equalized_Sub_Diagonal();
 }
 
 #endif
