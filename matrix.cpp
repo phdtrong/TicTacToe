@@ -21,19 +21,19 @@ File Description: Define all Matrix operators being declared in Matrix.h
 #include "matrix.h"
 template <class T> T& Matrix<T>::operator()(const int row, const int column) // get reference of value
 {
-  return mat[row][column];
+  return mat_[row][column];
 }
 template <class T> T Matrix<T>::operator()(const int row, const int column) const // get value
 {
-  return mat[row][column];
+  return mat_[row][column];
 }
 template <class T> T& Matrix<T>::operator()(const int array_index) // get reference of value
 {
-  return mat[array_index/SIDE][array_index%SIDE];
+  return mat_[array_index/SIDE][array_index%SIDE];
 }
 template <class T> T Matrix<T>::operator()(const int array_index) const // get value
 {
-  return mat[array_index/SIDE][array_index%SIDE];
+  return mat_[array_index/SIDE][array_index%SIDE];
 }
 template <class T> void Matrix<T>::operator=(const T value) // assign the whole Matrix by 1 const value
 {
