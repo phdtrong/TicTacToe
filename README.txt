@@ -68,9 +68,9 @@ https://www.educba.com/minimax-algorithm/
       * AI can move freely and place VALID movement
       * AI can play fairly and can beat player with good intelligence of win or draw result
 
- 3.INSTRUCTION TO CLEAN, RUN:
-  3.1.Clear all old compiled files: make clear
-  3.2.Clean and recompile: make clean_build
+ 3.INSTRUCTION TO RUN:
+  3.1.Download the zip file
+  3.2.Compile and run: make clean
 
  4.WORK CITED:
   4.1.“Minimax Algorithm in Game Theory: Set 1 (Introduction).” GeeksforGeeks, 24 Nov. 2021, https://www.geeksforgeeks.org/minimax-algorithm-in-game-theory-set-1-introduction/. 
