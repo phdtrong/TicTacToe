@@ -69,7 +69,7 @@ https://www.educba.com/minimax-algorithm/
       * AI can play fairly and can beat player with good intelligence of win or draw result
 
  3.INSTRUCTION TO RUN:
-  3.1.Download the zip file, unzip file and go to that folder
+  3.1.Download the zip file, unzip file and open Terminal at that unzipped folder
   3.2.Compile and run with command make clean
 
  4.WORK CITED:
