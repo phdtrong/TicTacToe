@@ -10,8 +10,18 @@ Project Description: Standalone game allows user to beat AI.
   This project includes main files of matrix
   operators, tictactoe game driver, and main
   file to call driver and load the game.
-License: Included but not limited of MIT, Harvard, CSUF, Github
-File Name: player.h
+License: Copyright (C) 2022 by
+ Adam Harb, adamharb1999@csu.fullerton.edu
+ Albert Paez, albertzeap@csu.fullerton.edu
+ Trong Pham, phdtrong@csu.fullerton.edu
+This game is a free software: you can redistribute it 
+and/or modify it under the terms of the GNU General Public 
+License as published by the Free Software Foundation.
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+File Name: test.h
 File Description: Declare all test operators/characteristic
 ================================================================*/
 #pragma once
