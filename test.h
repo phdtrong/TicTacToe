@@ -30,11 +30,13 @@ File Description: Declare all test operators/characteristic
 #define Test_Case(test_case_number, test_case_description, execute_expression, test_expression) \
   std::cout << " " << ++test_case_number << "\t"; \
   execute_expression; \
-  if( test_expression == false ) { std::cout << ".FAILED "; \
+  if( test_expression == false ) { \
+    std::cout << ".FAILED "; \
   } \
-  else { std::cout << ".Passed "; \
+  else { \
+    std::cout << ".Passed "; \
   } \
-  std::cout << test_case_description << " "; \
+  std::cout << test_case_description; \
   std::cout << std::endl;
 
 class Test {
