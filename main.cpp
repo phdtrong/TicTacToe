@@ -22,7 +22,7 @@ but WITHOUT ANY WARRANTY; without even the implied warranty of
 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 GNU General Public License for more details.
 File Name: main.cpp
-File Description: Calling game driver file to load the game.
+File Description: Calling to test class to test app in multiple levels.
 ================================================================*/
 #pragma once
 #ifndef __MAIN_CPP__
