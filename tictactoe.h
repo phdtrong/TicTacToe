@@ -22,8 +22,7 @@ File Description: Declare all game operators
 #include "matrix.h"
 using namespace std;
 
-class Tictactoe
-{
+class Tictactoe {
   private:
     Matrix<char> board_;
 
