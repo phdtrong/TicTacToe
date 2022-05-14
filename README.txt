@@ -1,7 +1,14 @@
-# TicTacToe
+# TicTacToe game
 Tictactoe game with AI player
 Algorithm that the AI will be using
 https://www.educba.com/minimax-algorithm/
+
+Copyright (C) 2022 by
+ Adam Harb, adamharb1999@csu.fullerton.edu
+ Albert Paez, albertzeap@csu.fullerton.edu
+ Trong Pham, phdtrong@csu.fullerton.edu
+This game is a free software: you can redistribute it and/or modify it under the terms of the GNU General Public 
+License as published by the Free Software Foundation.
 
 1.ORGANIZATION:
  1.1.DIRECTORY:
