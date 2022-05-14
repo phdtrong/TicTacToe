@@ -7,8 +7,13 @@ Copyright (C) 2022 by
  Adam Harb, adamharb1999@csu.fullerton.edu
  Albert Paez, albertzeap@csu.fullerton.edu
  Trong Pham, phdtrong@csu.fullerton.edu
-This game is a free software: you can redistribute it and/or modify it under the terms of the GNU General Public 
+This game is a free software: you can redistribute it 
+and/or modify it under the terms of the GNU General Public 
 License as published by the Free Software Foundation.
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
 
 1.ORGANIZATION:
  1.1.DIRECTORY:
