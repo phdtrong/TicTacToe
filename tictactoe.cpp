@@ -11,8 +11,8 @@ Project Description: Standalone game allows user to beat AI.
   operators, tictactoe game driver, and main
   file to call driver and load the game.
 License: Included but not limited of MIT, Harvard, CSUF, Github
-File Name: tictactoe.h
-File Description: Define all game operators declared in tictactoe.h
+File Name: tictactoe.cpp
+File Description: Define al game operators declared in tictactoe.h
 ================================================================*/
 #pragma once
 #ifndef __TICTACTOE_CPP__
@@ -63,8 +63,7 @@ void Tictactoe::Show_Instruction() const {
   }
 }
 // Initialize the board
-void Tictactoe::Initialize_Board_Value() {
-  board_ = ' '; }
+void Tictactoe::Initialize_Board_Value() { board_ = ' '; }
 // Who is the winner?
 void Tictactoe::Define_Winner(const int whose_turn) const {
   if (whose_turn == AI)
@@ -73,9 +72,7 @@ void Tictactoe::Define_Winner(const int whose_turn) const {
     cout << "PLAYER won\n" << endl;
 }
 // Is a player has a row crossed
-bool Tictactoe::Is_Cross_Row() const {
-  return board_.Exist_Equalized_Row();
-}
+bool Tictactoe::Is_Cross_Row() const { return board_.Exist_Equalized_Row(); }
 // Is a player has a column crossed
 bool Tictactoe::Is_Cross_Column() const {
   return board_.Exist_Equalized_Column();
@@ -100,7 +97,7 @@ int Tictactoe::Mini_Max(const int depth, const bool is_ai) {
   // Score of the current movement and the best_score for any movement
   int score = 0;
   int best_score = 0;
-  //Now let's go through the game loop and begin the fun
+  // Now let's go through the game loop and begin the fun
   if (Is_Game_Over()) {
     return is_ai ? (-1) : (1);
   }
@@ -110,28 +107,29 @@ int Tictactoe::Mini_Max(const int depth, const bool is_ai) {
     if (depth < SIDE * SIDE) {
       // This is AI turn
       if (is_ai) {
-        //First, assign the best_score for the AIplayer as NEGATIVE INFINITY
+        // First, assign the best_score for the AIplayer as NEGATIVE INFINITY
         best_score = NEGATIVE_INFINITY;
-        //Now try to visit valid movement and try to find the better value for best_score
+        // Now try to visit valid movement and try to find the better value for
+        // best_score
         for (int i = 0; i < SIDE; i++) {
           for (int j = 0; j < SIDE; j++) {
             // Still valid spot?
             if (board_(i, j) == ' ') {
               board_(i, j) = AI_MOVE; // mark as an AI movement
-              score = Mini_Max(depth + 1, false); // then go to evaluate next depth
+              score =
+                  Mini_Max(depth + 1, false); // then go to evaluate next depth
               board_(i, j) = ' '; // re-assign the value at current spot
               Re_Assign_If_Bigger(best_score, score);
             }
           }
         }
         return best_score;
-      }
-      else { //oh so here is the player movement
+      } else { // oh so here is the player movement
         best_score = POSITIVE_INFINITY;
         for (int i = 0; i < SIDE; i++) {
           for (int j = 0; j < SIDE; j++) {
             if (board_(i, j) == ' ') {
-              board_(i, j) = PLAYER_MOVE; // this is player movement
+              board_(i, j) = PLAYER_MOVE;        // this is player movement
               score = Mini_Max(depth + 1, true); // just redo things like AI
               board_(i, j) = ' ';
               Re_Assign_If_Smaller(best_score, score);
@@ -140,33 +138,33 @@ int Tictactoe::Mini_Max(const int depth, const bool is_ai) {
         }
         return best_score;
       }
-    }
-    else {
+    } else {
       return 0; // neutral value
     }
   }
 }
 // What is the best movement, based on a specific movement index?
 int Tictactoe::Best_Move(const int total_filled_cells) {
-  //First, let's assign the row and column indexes
-  //and use it to compute the corresponding array index later
+  // First, let's assign the row and column indexes
+  // and use it to compute the corresponding array index later
   int row_index = -1;
   int col_index = -1;
-  //Let's also assign the score and best_score for AI player
+  // Let's also assign the score and best_score for AI player
   int score = 0;
   int best_score = NEGATIVE_INFINITY;
-  //Now, let's go through the board and check if it is a valid movement for AI
+  // Now, let's go through the board and check if it is a valid movement for AI
   for (int i = 0; i < SIDE; i++) {
     for (int j = 0; j < SIDE; j++) {
-      //cout << "best_move:AI at (" << i << "," << j << ")" << endl;
+      // cout << "best_move:AI at (" << i << "," << j << ")" << endl;
       if (board_(i, j) == ' ') {
         board_(i, j) = AI_MOVE;
         score = Mini_Max(total_filled_cells + 1, false);
         board_(i, j) = ' ';
-        if (score > best_score) { // if this movement (i,j) actual a better move then....
-          best_score = score; // re-assign best_score...
-          col_index = j;      // and mark the point immediately for row
-          row_index = i;      // and column
+        if (score > best_score) { // if this movement (i,j) actual a better move
+                                  // then....
+          best_score = score;     // re-assign best_score...
+          col_index = j;          // and mark the point immediately for row
+          row_index = i;          // and column
         }
       }
     }
@@ -185,22 +183,24 @@ void Tictactoe::Play(int whose_turn) {
   // Keep playing till the game is over or it is a draw
   while (!Is_Game_Over() && total_filled_cells != SIDE * SIDE) {
     int input_position;
-    if (whose_turn == AI) { //hey my turn, i am an AI
-      Notify_Movement(Best_Move(total_filled_cells), true); //Show the movement
-      Next_Turn(whose_turn, total_filled_cells); //And move to next turn
+    if (whose_turn == AI) { // hey my turn, i am an AI
+      Notify_Movement(Best_Move(total_filled_cells), true); // Show the movement
+      Next_Turn(whose_turn, total_filled_cells); // And move to next turn
     }
     // else if whose_turn = PLAYER
     else {
-      //List out valid movement and ask for player input
+      // List out valid movement and ask for player input
       List_Valid_Position();
       cout << endl << "Enter the position = ";
       cin >> input_position;
-      input_position--; //convert it to the real array index
-      if (Is_Valid_Movement(input_position)) { //what if it is a valid movement?
-        Notify_Movement(input_position, false); //Show the movement to screen
-        Next_Turn(whose_turn, total_filled_cells); //And move to next turn now
+      input_position--; // convert it to the real array index
+      if (Is_Valid_Movement(input_position)) {  // what if it is a valid
+                                                // movement?
+        Notify_Movement(input_position, false); // Show the movement to screen
+        Next_Turn(whose_turn, total_filled_cells); // And move to next turn now
       } else
-        Is_Filled_Or_Out_Of_Board(input_position); //Make sure to check end game!
+        Is_Filled_Or_Out_Of_Board(
+            input_position); // Make sure to check end game!
     }
   }
   // No one win but running out of spot ?--> A draw...
@@ -208,7 +208,7 @@ void Tictactoe::Play(int whose_turn) {
 }
 // Is game a DRAW or who actually won?
 void Tictactoe::Is_A_Draw_Or_Winnable(const int total_filled_cells,
-    int &whose_turn) const {
+                                      int &whose_turn) const {
   if (!Is_Game_Over() && total_filled_cells == SIDE * SIDE) {
     cout << "It's a draw" << endl;
   } else { // If there is one winner, who is that?
@@ -217,7 +217,7 @@ void Tictactoe::Is_A_Draw_Or_Winnable(const int total_filled_cells,
       whose_turn = PLAYER;
     else // if whose_turn == PLAYER
       whose_turn = AI;
-    //check the winner condition now
+    // check the winner condition now
     Define_Winner(whose_turn);
   }
 }
@@ -252,11 +252,13 @@ bool Tictactoe::Is_Valid_Movement(const int input_position) {
 }
 // Notify the movenent to the screen
 void Tictactoe::Notify_Movement(const int input_position, bool is_ai) {
-  if (!is_ai) { //hey this is an player movement
-    board_(input_position) = PLAYER_MOVE; // let's set that board element for player sign
+  if (!is_ai) { // hey this is an player movement
+    board_(input_position) =
+        PLAYER_MOVE; // let's set that board element for player sign
     cout << endl << "PLAYER filled spot number " << input_position + 1 << endl;
-  } else { //now, this is the AI movement
-    board_(input_position) = AI_MOVE; // let's set that board element for AI sign
+  } else { // now, this is the AI movement
+    board_(input_position) =
+        AI_MOVE; // let's set that board element for AI sign
     cout << endl << "AI filled spot number " << input_position + 1 << endl;
   }
 }
@@ -264,7 +266,5 @@ void Tictactoe::Notify_Movement(const int input_position, bool is_ai) {
 char Tictactoe::Get_Element(const int row, const int column) const {
   return board_(row, column);
 }
-char Tictactoe::Get_Element(const int index) const {
-  return board_(index);
-}
+char Tictactoe::Get_Element(const int index) const { return board_(index); }
 #endif
